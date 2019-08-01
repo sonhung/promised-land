@@ -1,6 +1,7 @@
 const express = require("express");
 const next = require("next");
 const getAuthAPI = require("./apis/authApi");
+const getNewsAPI = require("./apis/newsApi");
 
 const port = parseInt(process.env.PORT, 10) || 8080;
 const dev = process.env.NODE_ENV !== "production";
@@ -10,6 +11,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const authApi = getAuthAPI();
+const newsApi = getNewsAPI();
 app
   .prepare()
   .then(() => {
@@ -18,6 +20,7 @@ app
     server.use(express.json());
 
     server.post("/auth/login", (req, res) => authApi.login(req, res));
+    server.get("/news/get-news", (req, res) => newsApi.getNews(req, res));
 
     server.get("/health", (req, res) => res.status(200).send("OK"));
     server.get("*", (req, res) => {

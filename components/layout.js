@@ -1,29 +1,28 @@
-import React from 'react'
-import { any } from 'prop-types'
-import css from 'styled-jsx/css'
-import Header from './header'
+import React from "react";
+import { any } from "prop-types";
+import css from "styled-jsx/css";
+import Header from "./header";
 
 const Layout = props => {
   return (
     <div className="layout">
       <Header />
-      <div className="content">
-        {props.children}
-      </div>
+      <div className="content">{props.children}</div>
       <style jsx>{styles}</style>
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
-  children: any,
-}
+  children: any
+};
 
-export default Layout
+export default Layout;
 
 const styles = css`
   .layout {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    color: #222;
   }
 
   .content {
@@ -32,7 +31,7 @@ const styles = css`
 
   @media only screen and (max-width: 768px) {
     .content {
-      padding: 20px;
+      padding: 15px;
     }
   }
-`
+`;

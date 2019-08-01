@@ -1,3 +1,6 @@
 module.exports = {
-    loginUrl: '/auth/login'
-  }
+  loginUrl: "/auth/login",
+
+  // news
+  getNewsUrl: "/news/get-news"
+};

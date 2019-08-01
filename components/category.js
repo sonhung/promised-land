@@ -1,11 +1,10 @@
 import React from 'react'
 import { any } from 'prop-types'
-import { BrowserView, MobileView } from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect"
 import css from 'styled-jsx/css'
 import { Row, Col } from 'antd'
 import dynamic from 'next/dynamic'
 
-import 'react-multi-carousel/lib/styles.css'
 const Carousel = dynamic(import('react-multi-carousel'), {
   ssr: false
 })
@@ -62,17 +61,16 @@ const Category = props => {
             lg={{ span: 6 }}
             key={item.type}
           >
-            <div className="category-item">
+            <a href="https://google.com" className="category-item">
               <img src={item.img} className="category-img" />
               <div className="title">{item.name}</div>
-            </div>
+            </a>
           </Col>))}
         </Row>
       </BrowserView>
       <MobileView>
         <Carousel
           partialVisbile
-          itemClass="image-item"
           responsive={responsive}
           arrows={false}
         >

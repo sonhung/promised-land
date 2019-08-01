@@ -3,28 +3,28 @@
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import App, { Container } from 'next/app'
-import React from 'react'
-import NextSeo from 'next-seo'
-import Head from 'next/head'
-import 'antd/dist/antd.css';
+import App, { Container } from "next/app";
+import React from "react";
+import NextSeo from "next-seo";
+import Head from "next/head";
+import "antd/dist/antd.css";
+import "react-multi-carousel/lib/styles.css";
 
-
-import SEO from '../next-seo.config'
-import { AuthProvider } from '../components/authContext'
+import SEO from "../next-seo.config";
+import { AuthProvider } from "../components/authContext";
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     return (
       <Container>
         <Head>
@@ -41,6 +41,6 @@ export default class MyApp extends App {
           <Component {...pageProps} />
         </AuthProvider>
       </Container>
-    )
+    );
   }
 }
