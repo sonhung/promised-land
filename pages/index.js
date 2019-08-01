@@ -1,21 +1,14 @@
-import { useState } from 'react'
+import React from "react";
 
-import Layout from '../components/layout'
-import Category from '../components/shared/category'
+import Layout from "../components/layout";
+import Category from "../components/shared/category";
 
 const Index = () => {
-  const [showLogin, setShowLogin] = useState(false)
-
-  const login = () => {
-    setShowLogin(true)
-  }
-
   return (
-    <Layout >
+    <Layout>
       <Category />
-    </Layout >
-  )
-}
+    </Layout>
+  );
+};
 
-
-export default Index
+export default Index;
