@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint:fix": "eslint --fix --report-unused-disable-directives",
     "format": "prettier --write"
   },

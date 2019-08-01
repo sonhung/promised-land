@@ -5,6 +5,7 @@ import { NewsProvider, NewsConsumer } from "../components/newsContext";
 import Layout from "../components/layout";
 import Category from "../components/category";
 import Slider from "../components/slider";
+import Advertisement from '../components/advertisement'
 
 const Index = () => {
   return (
@@ -16,10 +17,13 @@ const Index = () => {
               <div className="category">
                 <Category />
               </div>
-              <div className="top-news">
+              <div className="asection">
+                <Advertisement title="Dự án mới" />
+              </div>
+              <div className="section">
                 <Slider title="Tin nổi bật" data={state.topNews} />
               </div>
-              <div className="hot-news">
+              <div className="section">
                 <Slider title="Tin mới cập nhật" data={state.hotNews} />
               </div>
             </div>
@@ -35,14 +39,16 @@ export default Index;
 
 const styles = css`
   .category {
-    margin: 10px 0;
+    margin: 20px 0;
   }
 
-  .top-news {
-    margin: 20px -5px;
+  .section {
+    margin: 70px -5px;
   }
 
-  .hot-news {
-    margin: 20px -5px;
+  @media only screen and (max-width: 767px) {
+    .section {
+      margin: 40px -5px;
+    }
   }
 `;

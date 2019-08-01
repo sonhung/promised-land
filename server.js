@@ -3,7 +3,7 @@ const next = require("next");
 const getAuthAPI = require("./apis/authApi");
 const getNewsAPI = require("./apis/newsApi");
 
-const port = parseInt(process.env.PORT, 10) || 8080;
+const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const host = process.env.HOST || "0.0.0.0";
 

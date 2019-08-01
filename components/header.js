@@ -25,11 +25,11 @@ const Header = () => {
           Đăng nhập
         </div>
       </Menu.Item>
-      <Menu.Item>
+      {/* <Menu.Item>
         <a >
           Đăng ký
         </a>
-      </Menu.Item>
+      </Menu.Item> */}
     </Menu>
   )
   const menuLogin = (
@@ -66,9 +66,9 @@ const Header = () => {
             </Dropdown>
           </div>}
           {!isMobileOnly && !isLogin && <div>
-            <Button type="primary" ghost>
+            {/* <Button type="primary" ghost>
               Đăng ký
-            </Button>
+            </Button> */}
             <Button type="danger" ghost onClick={() => setShowLogin(true)}>
               Đăng nhập
             </Button>
