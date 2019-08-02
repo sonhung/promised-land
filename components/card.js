@@ -1,22 +1,30 @@
-import React from "react";
-import css from "styled-jsx/css";
+import React from "react"
+import css from "styled-jsx/css"
+import Link from 'next/link'
 
 const CardComponent = props => {
-  const { image, type, name, aerea, price, address } = props;
+  const { image, type, name, aerea, price, address, id } = props;
   return (
     <div className="card">
-      <img src={image} className="card-img" />
-      <div className="info">
-        {type && <div className="type">{type}</div>}
-        {name && <div className="name">{name}</div>}
-        {aerea && (
-          <div>
-            Diện tích: {aerea} m<sup>2</sup>
+      <Link
+        href={`/news-detail?${id}`}
+        as={`/news-detail/${id}`}
+      >
+        <div>
+          <img src={image} className="card-img" />
+          <div className="info">
+            {type && <div className="type">{type}</div>}
+            {name && <div className="name">{name}</div>}
+            {aerea && (
+              <div>
+                Diện tích: {aerea} m<sup>2</sup>
+              </div>
+            )}
+            {price && <div className="price">{price}</div>}
+            {address && <div className="address">{address}</div>}
           </div>
-        )}
-        {price && <div className="price">{price}</div>}
-        {address && <div className="address">{address}</div>}
-      </div>
+        </div>
+      </Link>
       <style jsx>{styles}</style>
     </div>
   );

@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint:fix": "eslint --fix --report-unused-disable-directives",
     "format": "prettier --write"
   },
@@ -25,6 +25,8 @@
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.4",
     "react-multi-carousel": "^2.2.2",
+    "react-slick": "^0.24.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
