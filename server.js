@@ -19,8 +19,19 @@ app
     server.use(express.urlencoded({ extended: true }));
     server.use(express.json());
 
+    // Routes masking
+    server.get("/news-detail/:id", (req, res) => {
+      const actualPage = '/news-detail'
+      const queryParams = {
+        groupId: req.params.id,
+      }
+
+      app.render(req, res, actualPage, queryParams)
+    });
+
     server.post("/auth/login", (req, res) => authApi.login(req, res));
     server.get("/news/get-news", (req, res) => newsApi.getNews(req, res));
+    server.get("/news/news-detail/:id", (req, res) => newsApi.getNewsDetail(req, res));
 
     server.get("/health", (req, res) => res.status(200).send("OK"));
     server.get("*", (req, res) => {

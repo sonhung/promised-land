@@ -3,13 +3,15 @@ import { any } from "prop-types";
 
 import { makeGetRequest } from "../utils/makeRequest";
 import { getNewsUrl } from "../constants/router";
+import { async } from "C:/Users/son.nguyen/AppData/Local/Microsoft/TypeScript/3.5/node_modules/rxjs/internal/scheduler/async";
 
 const NewsContext = React.createContext();
 
 class NewsProvider extends Component {
   state = {
     topNews: [],
-    hotNews: []
+    hotNews: [],
+    newsDetail: {},
   };
 
   componentDidMount() {
@@ -19,10 +21,10 @@ class NewsProvider extends Component {
   getNews = async () => {
     const [
       { data: hotNews = [] } = {},
-      { data: topNews = [] } = {}
+      { data: topNews = [] } = {},
     ] = await Promise.all([
       makeGetRequest(getNewsUrl, { type: " hot-news" }),
-      makeGetRequest(getNewsUrl, { type: " top-news" })
+      makeGetRequest(getNewsUrl, { type: " top-news" }),
     ]);
     this.setState({ topNews, hotNews });
   };
@@ -31,7 +33,7 @@ class NewsProvider extends Component {
     return (
       <NewsContext.Provider
         value={{
-          state: this.state
+          state: this.state,
         }}
       >
         {this.props.children}
@@ -41,7 +43,7 @@ class NewsProvider extends Component {
 }
 
 NewsProvider.propTypes = {
-  children: any
+  children: any,
 };
 
 const NewsConsumer = NewsContext.Consumer;
