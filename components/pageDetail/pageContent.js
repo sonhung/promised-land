@@ -22,7 +22,7 @@ const PageDetail = props => {
     direction,
     description,
     width,
-    height
+    height,
   } = props;
 
   return (
@@ -171,7 +171,7 @@ const PageDetail = props => {
         <Button type="danger">
           <Icon type="phone" />
           0383838383
-              </Button>
+        </Button>
       </div>
       <style jsx>{styles}</style>
     </div>

@@ -11,9 +11,9 @@ const Footer = () => {
     <div className="footer">
       <div className="content">
         © 2019 Promised Land
-      <div className="contact">
+        <div className="contact">
           <IconFont type="icon-facebook" style={{ fontSize: '23px' }} />
-          <IconFont type="icon-twitter"  style={{ fontSize: '23px' }}/>
+          <IconFont type="icon-twitter"  style={{ fontSize: '23px' }} />
         </div>
       </div>
       <style jsx>{styles}</style>

@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { Row, Col, Icon } from 'antd'
 import disableScroll from 'disable-scroll'
 import Slider from 'react-slick'
-import { isMobileOnly } from 'react-device-detect'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -50,7 +49,7 @@ const settings = {
   infinite: true,
   slidesToShow: 3,
   speed: 500,
-  focusOnSelect: true
+  focusOnSelect: true,
   // arrows: false
 };
 
