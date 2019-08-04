@@ -1,29 +1,33 @@
-import React, { useState, useContext, useEffect } from 'react'
-import css from 'styled-jsx/css'
-import { Button, Modal, Input, Menu, Dropdown, Icon, Avatar, Badge } from 'antd'
+import React, { useState, useContext, useEffect } from "react";
+import css from "styled-jsx/css";
+import {
+  Button,
+  Modal,
+  Input,
+  Menu,
+  Dropdown,
+  Icon,
+  Avatar,
+  Badge
+} from "antd";
 import { isMobileOnly } from "react-device-detect";
 
-import LoginForm from './loginForm'
-import AuthContext from './authContext'
+import LoginForm from "./loginForm";
+import AuthContext from "./authContext";
 
-const logoUrl = "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+const logoUrl =
+  "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
 
 const Header = () => {
-  const {
-    isLogin,
-    login,
-    googleLogin,
-    facebookLogin,
-    logout,
-  } = useContext(AuthContext)
-  const [showLogin, setShowLogin] = useState(false)
+  const { isLogin, login, googleLogin, facebookLogin, logout } = useContext(
+    AuthContext
+  );
+  const [showLogin, setShowLogin] = useState(false);
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <div onClick={() => setShowLogin(true)}>
-          Đăng nhập
-        </div>
+        <div onClick={() => setShowLogin(true)}>Đăng nhập</div>
       </Menu.Item>
       {/* <Menu.Item>
         <a >
@@ -31,22 +35,18 @@ const Header = () => {
         </a>
       </Menu.Item> */}
     </Menu>
-  )
+  );
   const menuLogin = (
     <Menu>
       <Menu.Item>
-        <div onClick={logout}>
-          Đăng xuất
-        </div>
+        <div onClick={logout}>Đăng xuất</div>
       </Menu.Item>
     </Menu>
-  )
+  );
 
   useEffect(() => {
-    setShowLogin(false)
-  }, [isLogin])
-
-  const searchWidth = isMobileOnly ? 200 : 400
+    setShowLogin(false);
+  }, [isLogin]);
 
   return (
     <div>
@@ -55,40 +55,50 @@ const Header = () => {
           <img src={logoUrl} alt="logo" className="img-logo" />
         </div>
         <div className="search">
-          <Input.Search
-            placeholder="Search"
-            onSearch={value => console.log(value)}
-            style={{ width: searchWidth }}
-            size="large"
-          />
+          {!isMobileOnly && (
+            <Input placeholder="Search" style={{ width: 400 }} size="default" />
+          )}
+          <Button shape="circle" icon="search" />
         </div>
         <div className="menu">
-          {isMobileOnly && <div>
-            <Dropdown overlay={isLogin ? menuLogin : menu} placement="bottomRight">
-              <Icon type="menu" style={{ color: 'rgba(0,0,0,.25)', fontSize: '26px' }} />
-            </Dropdown>
-          </div>}
-          {!isMobileOnly && !isLogin && <div>
-            {/* <Button type="primary" ghost>
+          {isMobileOnly && (
+            <div>
+              <Dropdown
+                overlay={isLogin ? menuLogin : menu}
+                placement="bottomRight"
+              >
+                <Icon
+                  type="menu"
+                  style={{ color: "rgba(0,0,0,.25)", fontSize: "26px" }}
+                />
+              </Dropdown>
+            </div>
+          )}
+          {!isMobileOnly && !isLogin && (
+            <div>
+              {/* <Button type="primary" ghost>
               Đăng ký
             </Button> */}
-            <Button type="danger" ghost onClick={() => setShowLogin(true)}>
-              Đăng nhập
-            </Button>
-          </div>}
-          {!isMobileOnly && isLogin && <div className="browser-menu">
-            <Button type="danger" ghost>
-              Đăng tin
-            </Button>
-            <div className="notification">
-              <Badge dot offset={[-7, 5]}>
-                <Icon type="bell" style={{ fontSize: '26px' }} />
-              </Badge>
+              <Button type="danger" ghost onClick={() => setShowLogin(true)}>
+                Đăng nhập
+              </Button>
             </div>
-            <Dropdown overlay={menuLogin} placement="bottomRight">
-              <Avatar style={{ backgroundColor: '#87d068' }} icon="user" />
-            </Dropdown>
-          </div>}
+          )}
+          {!isMobileOnly && isLogin && (
+            <div className="browser-menu">
+              <Button type="danger" ghost>
+                Đăng tin
+              </Button>
+              <div className="notification">
+                <Badge dot offset={[-7, 5]}>
+                  <Icon type="bell" style={{ fontSize: "26px" }} />
+                </Badge>
+              </div>
+              <Dropdown overlay={menuLogin} placement="bottomRight">
+                <Avatar style={{ backgroundColor: "#87d068" }} icon="user" />
+              </Dropdown>
+            </div>
+          )}
         </div>
       </div>
       <Modal
@@ -96,22 +106,26 @@ const Header = () => {
         footer={null}
         visible={showLogin && !isLogin}
         onCancel={() => setShowLogin(false)}
-        bodyStyle={{ backgroundColor: '#f0f2f5', borderRadius: '5px' }}
+        bodyStyle={{ backgroundColor: "#f0f2f5", borderRadius: "5px" }}
         width={400}
       >
-        <LoginForm login={login} googleLogin={googleLogin} facebookLogin={facebookLogin} />
+        <LoginForm
+          login={login}
+          googleLogin={googleLogin}
+          facebookLogin={facebookLogin}
+        />
       </Modal>
       <style jsx>{styles}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
 
 const styles = css`
   .header {
     display: flex;
-    flex:1;
+    flex: 1;
     flex-wrap: nowrap;
     z-index: 10;
     height: 62px;
@@ -124,7 +138,7 @@ const styles = css`
 
   .logo {
     order: 1;
-    margin: 0 20px 0 70px
+    margin: 0 20px 0 70px;
   }
 
   .img-logo {
@@ -134,6 +148,12 @@ const styles = css`
   .search {
     flex: 1;
     order: 2;
+  }
+
+  .search :global(button) {
+    background-color: #ff4d4f;
+    color: #fff;
+    margin-left: 7px;
   }
 
   .menu {
@@ -150,7 +170,7 @@ const styles = css`
   }
 
   .browser-menu {
-    display: flex
+    display: flex;
   }
   .notification {
     margin: 5px 20px;
@@ -165,4 +185,4 @@ const styles = css`
       margin: 3px 20px;
     }
   }
-`
+`;
