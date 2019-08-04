@@ -2406,6 +2406,13 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
+disable-scroll@^0.5.0:
+  version "0.5.0"
+  resolved "https://npm.veep.tech/disable-scroll/-/disable-scroll-0.5.0.tgz#c06bebbe5e246f77a332573afaebb09a8e270022"
+  integrity sha512-esLJZORACXLVCIupsak9tJ+nfOH6nrj+iRSGTD8wj9HdHer6qSJCNs+ZCFXJ+d1kpgiasJ+lwNMEC7jmXzatZA==
+  dependencies:
+    scrollingelement "^1.5.2"
+
 doctrine@1.5.0:
   version "1.5.0"
   resolved "https://npm.veep.tech/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
@@ -6444,6 +6451,11 @@ schema-utils@^2.0.0:
   dependencies:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
+
+scrollingelement@^1.5.2:
+  version "1.5.2"
+  resolved "https://npm.veep.tech/scrollingelement/-/scrollingelement-1.5.2.tgz#b63b71114d864e3671ca1e854ea1f93af61f107e"
+  integrity sha1-tjtxEU2GTjZxyh6FTqH5OvYfEH4=
 
 semver-compare@^1.0.0:
   version "1.0.0"

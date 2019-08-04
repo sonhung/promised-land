@@ -46,6 +46,8 @@ const Header = () => {
     setShowLogin(false)
   }, [isLogin])
 
+  const searchWidth = isMobileOnly ? 200 : 400
+
   return (
     <div>
       <div className="header">
@@ -56,7 +58,8 @@ const Header = () => {
           <Input.Search
             placeholder="Search"
             onSearch={value => console.log(value)}
-            style={{ width: 200 }}
+            style={{ width: searchWidth }}
+            size="large"
           />
         </div>
         <div className="menu">

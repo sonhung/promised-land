@@ -1,13 +1,15 @@
-import React from "react";
-import { any } from "prop-types";
-import css from "styled-jsx/css";
-import Header from "./header";
+import React from 'react'
+import { any } from 'prop-types'
+import css from 'styled-jsx/css'
+import Header from './header'
+import Footer from './footer'
 
 const Layout = props => {
   return (
     <div className="layout">
       <Header />
       <div className="content">{props.children}</div>
+      <Footer />
       <style jsx>{styles}</style>
     </div>
   );
@@ -27,6 +29,7 @@ const styles = css`
 
   .content {
     padding: 30px 50px;
+    min-height: calc(100vh - 152px);
   }
 
   @media only screen and (max-width: 768px) {

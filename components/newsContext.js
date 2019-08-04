@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import { any } from "prop-types";
+import React, { Component } from 'react'
+import { any } from 'prop-types'
 
-import { makeGetRequest } from "../utils/makeRequest";
-import { getNewsUrl } from "../constants/router";
-import { async } from "C:/Users/son.nguyen/AppData/Local/Microsoft/TypeScript/3.5/node_modules/rxjs/internal/scheduler/async";
-
-const NewsContext = React.createContext();
+import { makeGetRequest } from '../utils/makeRequest'
+import { getNewsUrl } from '../constants/router'
+const NewsContext = React.createContext()
 
 class NewsProvider extends Component {
   state = {

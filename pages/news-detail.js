@@ -3,36 +3,38 @@ import css from 'styled-jsx/css'
 import Head from 'next/head'
 import { isEmpty } from 'lodash'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import { makeGetRequest } from '../utils/makeRequest'
 import { getNewsDetailUrl } from '../constants/router'
-// import { NewsProvider } from '../components/newsContext'
 import Layout from '../components/layout'
-import Carousel from '../components/carousel'
+import Carousel from '../components/pageDetail/carousel'
+import PageContent from '../components/pageDetail/pageContent'
+
+import { DEFAULT_IMAGE } from '../constants'
 
 const NewsDetail = props => {
   const {
     data: {
-      img = '',
       title = '',
-      images = [],
+      photos = [],
     } = {},
+    data = {}
   } = props
+
+  const seoImage = photos[0] || DEFAULT_IMAGE
 
   return (
     <Layout>
       <Head>
         <meta name="title" content={title} />
-        <meta name="og:image" src={img} />
+        <meta name="og:image" src={seoImage} />
       </Head>
-      {!isEmpty(images) && <div className="carousel">
-        <Carousel data={images} />
+      {!isEmpty(photos) && <div className="carousel">
+        <Carousel data={photos} />
       </div>
       }
-      {/* <NewsProvider>
-      </NewsProvider> */}
+      <div className="content">
+        <PageContent {...data} />
+      </div>
       <style jsx>{styles}</style>
     </Layout>
   );
@@ -49,7 +51,10 @@ NewsDetail.getInitialProps = async ({ res, req }) => {
   return { data }
 }
 
-export default NewsDetail;
+export default NewsDetail
 
 const styles = css`
+  .content {
+    margin: 57px 10%;
+  }
 `;

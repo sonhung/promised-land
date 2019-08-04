@@ -2,28 +2,39 @@ import React from "react"
 import css from "styled-jsx/css"
 import Link from 'next/link'
 
+import { DEFAULT_IMAGE, HOUSE_TYPE } from '../constants'
+import { formatPrice } from '../utils'
 const CardComponent = props => {
-  const { image, type, name, aerea, price, address, id } = props;
+  const {
+    photos = [],
+    _id,
+    title,
+    price,
+    raw_address,
+    prop_type,
+    area
+  } = props
+  const image = photos[0] || DEFAULT_IMAGE
   return (
     <div className="card">
       <Link
-        href={`/news-detail?${id}`}
-        as={`/news-detail/${id}`}
+        href={`/news-detail?${_id}`}
+        as={`/news-detail/${_id}`}
       >
-        <div>
+        <a target="_blank" className="open-new-tab">
           <img src={image} className="card-img" />
           <div className="info">
-            {type && <div className="type">{type}</div>}
-            {name && <div className="name">{name}</div>}
-            {aerea && (
+            {prop_type && <div className="type">{HOUSE_TYPE[prop_type]}</div>}
+            {title && <div className="name">{title}</div>}
+            {area && (
               <div>
-                Diện tích: {aerea} m<sup>2</sup>
+                Diện tích: {area} m<sup>2</sup>
               </div>
             )}
-            {price && <div className="price">{price}</div>}
-            {address && <div className="address">{address}</div>}
+            {price && <div className="price">{formatPrice(price)}đ</div>}
+            {raw_address && <div className="address">{raw_address}</div>}
           </div>
-        </div>
+        </a>
       </Link>
       <style jsx>{styles}</style>
     </div>
@@ -35,6 +46,10 @@ export default CardComponent;
 const styles = css`
   .card {
     height: 100%;
+  }
+
+  .open-new-tab {
+    color: #222;
   }
 
   .info :global(div) {
