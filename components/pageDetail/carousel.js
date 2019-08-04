@@ -1,14 +1,14 @@
-import React, { useState, useRef } from "react";
-import css from "styled-jsx/css";
-import { isEmpty } from "lodash";
-import styled from "styled-components";
-import { Row, Col, Icon } from "antd";
-import disableScroll from "disable-scroll";
-import Slider from "react-slick";
-import { isMobileOnly } from "react-device-detect";
+import React, { useState, useRef } from 'react'
+import css from 'styled-jsx/css'
+import { isEmpty } from 'lodash'
+import styled from 'styled-components'
+import { Row, Col, Icon } from 'antd'
+import disableScroll from 'disable-scroll'
+import Slider from 'react-slick'
+import { isMobileOnly } from 'react-device-detect'
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const Img = styled.img`
   object-fit: cover;
@@ -28,7 +28,7 @@ const Img = styled.img`
       -webkit-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
       transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     height: ${props => (props.large ? "302px" : "150px")};
   }
 `;
@@ -103,13 +103,13 @@ const Carousel = props => {
               <Col md={12}>
                 <Image src={data[0]} large onClick={viewGallery(0)} />
               </Col>
-              {totalItem < 5 && !isMobileOnly && (
+              {totalItem < 5 && <div className="hide-mobile">
                 <Col md={12}>
                   <Image src={data[1]} large onClick={viewGallery(1)} />
                 </Col>
-              )}
-              {totalItem > 4 && !isMobileOnly && (
-                <div>
+              </div>}
+              {totalItem > 4 && (
+                <div className="hide-mobile">
                   <Col md={12}>
                     <Row>
                       <Col md={12}>
@@ -303,6 +303,12 @@ const styles = css`
     .arrow-left {
       text-align: left;
       left: -10px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .hide-mobile {
+      display: none;
     }
   }
 `;

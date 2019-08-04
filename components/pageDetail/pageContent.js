@@ -1,11 +1,11 @@
-import React from "react";
-import css from "styled-jsx/css";
-import { Row, Col, Breadcrumb, Icon, Button } from "antd";
+import React from 'react'
+import css from 'styled-jsx/css'
+import { Row, Col, Breadcrumb, Icon, Button } from 'antd'
 
-import { HOUSE_TYPE } from "../../constants";
-import { formatPrice } from "../../utils";
-import wcIcon from "../../assets/images/wc.svg";
-import bedRoom from "../../assets/images/bedroom.svg";
+import { HOUSE_TYPE } from '../../constants'
+import { formatPrice } from '../../utils'
+import wcIcon from '../../assets/images/wc.svg'
+import bedRoom from '../../assets/images/bedroom.svg'
 
 const PageDetail = props => {
   const {
@@ -62,7 +62,7 @@ const PageDetail = props => {
             <span>Thông tin chi tiết</span>
             <Row>
               {height && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="border-left"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -71,7 +71,7 @@ const PageDetail = props => {
                 </Col>
               )}
               {width && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="border-bottom"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -80,7 +80,7 @@ const PageDetail = props => {
                 </Col>
               )}
               {n_floors && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="database"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -89,7 +89,7 @@ const PageDetail = props => {
                 </Col>
               )}
               {direction && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="fullscreen"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -98,13 +98,13 @@ const PageDetail = props => {
                 </Col>
               )}
               {n_bedrooms && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <img src={bedRoom} className="img-icon" />
                   Phòng ngủ: {n_bedrooms}
                 </Col>
               )}
               {n_livingrooms && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="gold"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -113,7 +113,7 @@ const PageDetail = props => {
                 </Col>
               )}
               {n_kitchens && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <Icon
                     type="fire"
                     style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
@@ -122,7 +122,7 @@ const PageDetail = props => {
                 </Col>
               )}
               {n_wcs && (
-                <Col md={8}>
+                <Col lg={8} xs={12}>
                   <img src={wcIcon} className="img-icon" />
                   Phòng vệ sinh: {n_wcs}
                 </Col>
@@ -166,6 +166,13 @@ const PageDetail = props => {
           </div>
         </Col>
       </Row>
+      <div className="mobile-show-info">
+        <span className="mobile-price">{formatPrice(price)}đ</span>
+        <Button type="danger">
+          <Icon type="phone" />
+          0383838383
+              </Button>
+      </div>
       <style jsx>{styles}</style>
     </div>
   );
@@ -254,5 +261,42 @@ const styles = css`
     position: relative;
     top: -2px;
     margin-right: 7px;
+  }
+
+  .mobile-show-info {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    margin-left: -25px;
+    background-color: #fff;
+    border-top: 1px solid #cdcdcd;
+    padding: 10px;
+    display: none;
+  }
+
+  .mobile-show-info :global(button) {
+    float: right;
+    background-color: #ff4d4f;
+    color: #fff;
+    height: 50px;
+  }
+
+  .mobile-price {
+    font-size: 25px;
+    font-weight: 700;
+    color: #ff4d4f;
+    position: relative;
+    top: 5px
+  }
+
+  @media only screen and (max-width: 767px) {
+    .mobile-show-info {
+      display: block;
+    }
+
+    .info {
+      display: none;
+    }
   }
 `;

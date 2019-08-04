@@ -48,4 +48,11 @@ const styles = css`
     margin: 0 7px;
   }
 
+  @media only screen and (max-width: 767px) {
+    .footer {
+      height: 120px;
+      padding: 15px;
+    }
+  }
+
 `;

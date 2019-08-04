@@ -56,12 +56,6 @@ const styles = css`
 
   @media only screen and (max-width: 1024px) {
     .content {
-      margin: 37px 50px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .content {
       margin: 37px 10px;
     }
   }
