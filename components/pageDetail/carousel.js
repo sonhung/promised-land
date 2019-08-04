@@ -1,13 +1,13 @@
-import React, { useState, useRef } from 'react'
-import css from 'styled-jsx/css'
-import { isEmpty } from 'lodash'
-import styled from 'styled-components'
-import { Row, Col, Icon } from 'antd'
-import disableScroll from 'disable-scroll'
-import Slider from 'react-slick'
+import React, { useState, useRef } from "react";
+import css from "styled-jsx/css";
+import { isEmpty } from "lodash";
+import styled from "styled-components";
+import { Row, Col, Icon, Button } from "antd";
+import disableScroll from "disable-scroll";
+import Slider from "react-slick";
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Img = styled.img`
   object-fit: cover;
@@ -49,7 +49,7 @@ const settings = {
   infinite: true,
   slidesToShow: 3,
   speed: 500,
-  focusOnSelect: true,
+  focusOnSelect: true
   // arrows: false
 };
 
@@ -89,7 +89,12 @@ const Carousel = props => {
   };
 
   return (
-    <div>
+    <div className="carousel-container">
+      <div className="view-btn">
+        <Button icon="appstore" onClick={viewGallery(0)}>
+          Xem ảnh
+        </Button>
+      </div>
       <div className="carousel">
         <Row>
           {totalItem === 1 && (
@@ -102,11 +107,13 @@ const Carousel = props => {
               <Col md={12}>
                 <Image src={data[0]} large onClick={viewGallery(0)} />
               </Col>
-              {totalItem < 5 && <div className="hide-mobile">
-                <Col md={12}>
-                  <Image src={data[1]} large onClick={viewGallery(1)} />
-                </Col>
-              </div>}
+              {totalItem < 5 && (
+                <div className="hide-mobile">
+                  <Col md={12}>
+                    <Image src={data[1]} large onClick={viewGallery(1)} />
+                  </Col>
+                </div>
+              )}
               {totalItem > 4 && (
                 <div className="hide-mobile">
                   <Col md={12}>
@@ -196,12 +203,22 @@ const Carousel = props => {
 export default Carousel;
 
 const styles = css`
+  .carousel-container {
+    position: relative;
+  }
   .carousel {
     margin: -30px -50px;
   }
 
   .carousel:hover {
     filter: brightness(80%);
+  }
+
+  .view-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
   }
 
   .modal {
