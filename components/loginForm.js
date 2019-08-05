@@ -6,10 +6,11 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 import FacebookIcon from '../assets/images/facebook-icon.svg'
 import GoogleIcon from '../assets/images/google-icon.svg'
+import { googleClientId, facebookAppId } from '../config'
 
 class LoginForm extends React.Component {
   state = {
-    loading: false
+    loading: false,
   }
 
   onLogin = e => {
@@ -33,8 +34,8 @@ class LoginForm extends React.Component {
       googleLogin,
       facebookLogin,
       form: {
-        getFieldDecorator
-      } = {}
+        getFieldDecorator,
+      } = {},
     } = this.props
     const { loading } = this.state
 
@@ -84,7 +85,7 @@ class LoginForm extends React.Component {
           <div>
             <span>Sign in with</span>
             <GoogleLogin
-              clientId="204397365959-ma4obvgefq2bsuiua956of5as8p99kes.apps.googleusercontent.com"
+              clientId={googleClientId}
               onSuccess={googleLogin}
               onFailure={googleLogin}
               icon={false}
@@ -93,8 +94,8 @@ class LoginForm extends React.Component {
               )}
             />
             <FacebookLogin
-              appId="2455304521147376"
-              autoLoad={true}
+              appId={facebookAppId}
+              autoLoad
               fields="name,email,picture"
               autoLoad={false}
               callback={facebookLogin}

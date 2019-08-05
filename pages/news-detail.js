@@ -1,18 +1,27 @@
-import React from "react";
-import css from "styled-jsx/css";
-import Head from "next/head";
-import { isEmpty } from "lodash";
+import React from 'react'
+import css from 'styled-jsx/css'
+import Head from 'next/head'
+import { isEmpty } from 'lodash'
 
-import { makeGetRequest } from "../utils/makeRequest";
-import { getNewsDetailUrl } from "../constants/router";
-import Layout from "../components/layout";
-import Carousel from "../components/pageDetail/carousel";
-import PageContent from "../components/pageDetail/pageContent";
+import { makeGetRequest } from '../utils/makeRequest'
+import { getNewsDetailUrl } from '../constants/router'
+import Layout from '../components/layout'
+import Carousel from '../components/pageDetail/carousel'
+import PageContent from '../components/pageDetail/pageContent'
+import PageMap from '../components/pageDetail/pageMap'
 
-import { DEFAULT_IMAGE } from "../constants";
+import { DEFAULT_IMAGE } from '../constants'
 
 const NewsDetail = props => {
-  const { data: { title = "", photos = [] } = {}, data = {} } = props;
+  const {
+    data: {
+      title = '',
+      photos = [],
+      nearPlaces = [],
+      location = {},
+    } = {},
+    data = {},
+  } = props
 
   const seoImage = photos[0] || DEFAULT_IMAGE;
 
@@ -22,13 +31,16 @@ const NewsDetail = props => {
         <meta name="title" content={title} />
         <meta name="og:image" src={seoImage} />
       </Head>
-      {!isEmpty(photos) && (
+      {/* {!isEmpty(photos) && (
         <div className="carousel">
           <Carousel data={photos} />
         </div>
       )}
       <div className="content">
         <PageContent {...data} />
+      </div> */}
+      <div className="page-map">
+        <PageMap location={location} nearPlaces={nearPlaces} />
       </div>
       <style jsx>{styles}</style>
     </Layout>
