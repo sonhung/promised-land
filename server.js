@@ -3,7 +3,7 @@ const next = require("next");
 const getAuthAPI = require("./apis/authApi");
 const getNewsAPI = require("./apis/newsApi");
 
-const port = parseInt(process.env.PORT, 10) || 3000;
+const port = parseInt(process.env.PORT, 10) || 8080;
 const dev = process.env.NODE_ENV !== "production";
 const host = process.env.HOST || "0.0.0.0";
 
@@ -19,19 +19,22 @@ app
     server.use(express.urlencoded({ extended: true }));
     server.use(express.json());
 
-    // Routes masking
-    server.get("/news-detail/:id", (req, res) => {
-      const actualPage = '/news-detail'
-      const queryParams = {
-        groupId: req.params.id,
-      }
+    // Routes masking category
+    server.get("/category/:type", (req, res) => {
+      const actualPage = '/category'
+      app.render(req, res, actualPage)
+    });
 
-      app.render(req, res, actualPage, queryParams)
+     // Routes masking new detail
+     server.get("/news-detail/:id", (req, res) => {
+      const actualPage = '/news-detail'
+      app.render(req, res, actualPage)
     });
 
     server.post("/auth/login", (req, res) => authApi.login(req, res));
     server.get("/news/get-news", (req, res) => newsApi.getNews(req, res));
     server.get("/news/news-detail/:id", (req, res) => newsApi.getNewsDetail(req, res));
+    server.get("/news/search", (req, res) => newsApi.searchNews(req, res));
 
     server.get("/health", (req, res) => res.status(200).send("OK"));
     server.get("*", (req, res) => {

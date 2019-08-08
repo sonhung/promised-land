@@ -1,7 +1,8 @@
 module.exports = {
-  loginUrl: "/auth/login",
+  loginUrl: '/auth/login',
 
   // news
-  getNewsUrl: "/news/get-news",
-  getNewsDetailUrl: "/news/news-detail",
+  getNewsUrl: '/news/get-news',
+  getNewsDetailUrl: '/news/news-detail',
+  searchUrl: '/news/search/',
 };

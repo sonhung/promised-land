@@ -231,9 +231,16 @@ const newsApi = env => {
     res.send({ data })
   }
 
+  const searchNews = async (req, res) => {
+    const { query = {} } = req
+    console.log('query', query)
+    res.send({ data: DATA })
+  }
+
   return {
     getNews,
     getNewsDetail,
+    searchNews,
   };
 };
 

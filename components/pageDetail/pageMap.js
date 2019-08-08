@@ -2,7 +2,7 @@ import React from 'react'
 import { any } from 'prop-types'
 import css from 'styled-jsx/css'
 import GoogleMapReact from 'google-map-react'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 import { googleMapKey } from '../../config'
 import locationIcon from '../../assets/images/home-location.svg'
@@ -13,6 +13,22 @@ const LOCATION_ICON = {
   hospital: HospitalLocationIcon,
   school: SchollLocationIcon,
 }
+
+const Location = styled.img`
+  position: relative;
+  height: 30px;
+  top: -20px;
+  left: -15px;
+`
+
+const Place = styled.div`
+  img {
+    position: relative;
+    height: 25px;
+    top: -23px;
+    left: -13px;
+  }
+`
 
 const PageMap = props => {
   const {
@@ -59,11 +75,13 @@ const PageMap = props => {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => apiLoaded(map, maps)}
         >
-          <img className="maker" lat={lat} lng={lng} src={locationIcon} />
-          {nearPlaces.map((item, i) => <div key={i} {...item} className="place">
-            <div className="place-info">{item.name}</div>
-            <img src={LOCATION_ICON[item.type]} />
-          </div>)}
+          <Location lat={lat} lng={lng} src={locationIcon} />
+          {nearPlaces.map((item, i) => <Place key={i} {...item} className="place">
+            <div className="place">
+              <div className="place-info">{item.name}</div>
+              <img src={LOCATION_ICON[item.type]} />
+            </div>
+          </Place>)}
         </GoogleMapReact>
       </div>
       <style jsx>{styles}</style>
@@ -80,20 +98,6 @@ const styles = css`
   .map {
     width: 100%;
     height: 500px;
-  }
-
-  .maker {
-    position: relative;
-    height: 30px;
-    top: -20px;
-    left: -15px;
-  }
-
-  .place :global(img) {
-    position: relative;
-    height: 25px;
-    top: -23px;
-    left: -13px;
   }
 
   .place-info {
