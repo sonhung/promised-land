@@ -1,15 +1,13 @@
 /* global google */
-import React, { useState, useContext, useEffect, createRef } from "react";
-import css from "styled-jsx/css";
-import { Button, Modal, Menu, Dropdown, Icon, Avatar, Badge } from "antd";
-import { isMobileOnly } from "react-device-detect";
-import GoogleMapReact from "google-map-react";
+import React, { useState, useContext, useEffect, createRef } from 'react'
+import css from 'styled-jsx/css'
+import { Button, Modal, Menu, Dropdown, Icon, Avatar, Badge } from 'antd'
+import { isMobileOnly } from 'react-device-detect'
+import GoogleMapReact from 'google-map-react'
 
-import LoginForm from "./loginForm";
-import AuthContext from "./authContext";
-import { googleMapKey } from "../config";
-
-const isWindow = typeof window !== "undefined";
+import LoginForm from './loginForm'
+import AuthContext from './authContext'
+import { googleMapKey } from '../config'
 
 const logoUrl =
   "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
@@ -45,16 +43,16 @@ const Header = () => {
 
   const apiLoaded = maps => {
     // vietnam bounding boxes
-    // data get from https://gist.github.com/graydon/11198540
-    const vietnamBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(8.1790665, 102.14441),
-      new google.maps.LatLng(23.393395, 114.3337595)
-    );
+    // // data get from https://gist.github.com/graydon/11198540
+    // const vietnamBounds = new google.maps.LatLngBounds(
+    //   new google.maps.LatLng(8.1790665, 102.14441),
+    //   new google.maps.LatLng(23.393395, 114.3337595)
+    // );
 
-    searchBox = new maps.places.SearchBox(searchInput.current, {
-      bounds: vietnamBounds
-    });
-    searchBox.addListener("places_changed", onPlacesChanged);
+    // searchBox = new maps.places.SearchBox(searchInput.current, {
+    //   bounds: vietnamBounds
+    // });
+    // searchBox.addListener("places_changed", onPlacesChanged);
   };
 
   // search box
@@ -77,39 +75,30 @@ const Header = () => {
           <img src={logoUrl} alt="logo" className="img-logo" />
         </div>
         <div className="search">
-          {!isMobileOnly && isWindow && (
-            <input
-              ref={searchInput}
-              placeholder="Tìm kiếm"
-              className="search-place"
-            />
-          )}
+          <input
+            ref={searchInput}
+            placeholder="Tìm kiếm"
+            className="search-place"
+          />
           <Button shape="circle" icon="search" />
         </div>
         <div className="menu">
-          {isMobileOnly && (
-            <div>
-              <Dropdown
-                overlay={isLogin ? menuLogin : menu}
-                placement="bottomRight"
-              >
-                <Icon
-                  type="menu"
-                  style={{ color: "rgba(0,0,0,.25)", fontSize: "26px" }}
-                />
-              </Dropdown>
-            </div>
-          )}
-          {!isMobileOnly && !isLogin && (
-            <div>
-              {/* <Button type="primary" ghost>
-              Đăng ký
-            </Button> */}
-              <Button type="danger" ghost onClick={() => setShowLogin(true)}>
-                Đăng nhập
+          <div className="menu-mobile">
+            <Dropdown
+              overlay={isLogin ? menuLogin : menu}
+              placement="bottomRight"
+            >
+              <Icon
+                type="menu"
+                style={{ color: "rgba(0,0,0,.25)", fontSize: "26px" }}
+              />
+            </Dropdown>
+          </div>
+          <div className="menu-desktop">
+            <Button type="danger" ghost onClick={() => setShowLogin(true)}>
+              Đăng nhập
               </Button>
-            </div>
-          )}
+          </div>
           {!isMobileOnly && isLogin && (
             <div className="browser-menu">
               <Button type="danger" ghost>
@@ -228,6 +217,10 @@ const styles = css`
     margin: 5px 20px;
   }
 
+  .menu-mobile {
+    display: none
+  }
+
   @media only screen and (max-width: 576px) {
     .logo {
       margin: 0 15px;
@@ -235,6 +228,19 @@ const styles = css`
 
     .menu {
       margin: 3px 20px;
+    }
+
+    .search-place {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 812px) {
+    .menu-mobile {
+      display: block;
+    }
+    .menu-desktop {
+      display: none;
     }
   }
 `;

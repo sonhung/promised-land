@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 // import { any } from 'prop-types'
-import { BrowserView, MobileView } from "react-device-detect";
-import css from "styled-jsx/css";
-import { Row, Col } from "antd";
-import dynamic from "next/dynamic";
+import { BrowserView, MobileView } from 'react-device-detect'
+import css from 'styled-jsx/css'
+import { Row, Col } from 'antd'
+import dynamic from 'next/dynamic'
 
-const Carousel = dynamic(import("react-multi-carousel"), {
+const Carousel = dynamic(import('react-multi-carousel'), {
   ssr: false
 });
 
@@ -69,7 +69,7 @@ const Category = props => {
             >
               <a
                 className="category-item"
-                href={`/category?${item.type}`}
+                href={`/category/${item.type}`}
                 as={`/category/${item.type}`}
               >
                 <img src={item.img} className="category-img" />
@@ -82,12 +82,16 @@ const Category = props => {
       <MobileView>
         <Carousel partialVisbile responsive={responsive} arrows={false}>
           {CATEGORIES.map((item, i) => (
-            <div key={item.type}>
+            <a
+              key={item.type}
+              href={`/category/${item.type}`}
+              as={`/category/${item.type}`}
+            >
               <div className={`category-item ${i < 3 ? "mg-r-20" : ""}`}>
                 <img src={item.img} className="category-img" />
                 <div className="item-name">{item.name}</div>
               </div>
-            </div>
+            </a>
           ))}
         </Carousel>
       </MobileView>
@@ -108,7 +112,7 @@ const styles = css`
   }
 
   .category-item {
-    border- radius: 3px;
+    border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;

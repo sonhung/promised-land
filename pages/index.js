@@ -22,7 +22,7 @@ const Index = () => {
                     <Category />
                   </div>
                   <div className="asection">
-                    <Advertisement title="Dự án mới" />
+                    <Advertisement title="Dự án mới" type="image" />
                   </div>
                   <div className="section">
                     <Slider title="Tin nổi bật" data={state.topNews} />

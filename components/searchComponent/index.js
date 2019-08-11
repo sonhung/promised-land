@@ -3,19 +3,29 @@ import css from 'styled-jsx/css'
 import { Pagination } from 'antd'
 import { isMobileOnly } from 'react-device-detect'
 
+import SearchBlock from './searchBlock'
+import Ads from '../advertisement'
 import GridItems from './gridItems'
+import { SEARCH_TYPE } from '../../constants'
 
 const isWindow = typeof window !== 'undefined'
 
 const Index = props => {
-  const { data } = props
-
+  const { data, type } = props
+  const title = SEARCH_TYPE[type] || 'Tin nổi bật'
   const choosePage = page => {
     console.log('page here', page)
   }
 
   return (
     <div>
+      <div className="search">
+        <SearchBlock />
+      </div>
+      <div className="ads">
+        <Ads type="text"/>
+      </div>
+      <div className="title">{title}</div>
       <GridItems data={data} />
       <div className="pagination">
         {isWindow && <Pagination
@@ -34,6 +44,19 @@ const Index = props => {
 export default Index
 
 const styles = css`
+  .search {
+    margin: 10px 0 30px;
+  }
+
+  .ads {
+    margin: 30px -5px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 22px;
+  }
+
   .pagination {
     text-align: center;
   }

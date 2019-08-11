@@ -21,6 +21,7 @@ const Category = props => {
 
 // get news data by id from server
 Category.getInitialProps = async ({ res, req }) => {
+  console.log('douma')
   const {
     params: {
       type,

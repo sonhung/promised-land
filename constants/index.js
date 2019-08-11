@@ -5,7 +5,7 @@ export const DEFAULT_IMAGE = DefaultImage;
 export const HOUSE_TYPE = {
   house: "Nhà đất",
   apartment: "Căn hộ chung cư",
-  room: "Phòng trọ",
+  guestroom: "Phòng trọ",
   villa: "Biệt thự"
 };
 
@@ -34,4 +34,29 @@ export const PLACES_TYPE = [
     type: "drink_food",
     text: "Ăn/Uống"
   }
-];
+]
+
+export const TYPE = [
+  {
+    value: 'all',
+    label: 'Tất cả loại bất động sản'
+  },
+  {
+    value: 'house',
+    label: 'Nhà đất'
+  },
+  {
+    value: 'apartment',
+    label: 'Căn hộ'
+  },
+  {
+    value: 'villa',
+    label: 'Biệt thự'
+  },
+  {
+    value: 'guestroom',
+    label: 'Phòng trọ'
+  }
+]
+
+export const SEARCH_TYPE = {...HOUSE_TYPE}

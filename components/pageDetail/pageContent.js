@@ -254,6 +254,7 @@ const styles = css`
   .contact :global(button) {
     background-color: #ff4d4f;
     color: #fff;
+    border: 1px solid #ff4d4f;
   }
 
   .detail :global(span) {
@@ -296,7 +297,9 @@ const styles = css`
     float: right;
     background-color: #ff4d4f;
     color: #fff;
-    height: 50px;
+    border: 1px solid #ff4d4f;
+    border-radius: 5px;
+    height: 45px;
   }
 
   .mobile-price {
