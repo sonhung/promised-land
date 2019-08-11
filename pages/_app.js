@@ -9,6 +9,7 @@ import NextSeo from "next-seo";
 import Head from "next/head";
 import "antd/dist/antd.css";
 import "react-multi-carousel/lib/styles.css";
+import "../styles/app.css";
 
 import SEO from "../next-seo.config";
 import { AuthProvider } from "../components/authContext";

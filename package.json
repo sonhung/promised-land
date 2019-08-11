@@ -27,6 +27,7 @@
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.4",
     "react-multi-carousel": "^2.2.2",
+    "react-scroll": "^1.7.12",
     "react-slick": "^0.24.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"

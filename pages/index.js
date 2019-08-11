@@ -5,7 +5,9 @@ import { NewsProvider, NewsConsumer } from "../components/newsContext";
 import Layout from "../components/layout";
 import Category from "../components/category";
 import Slider from "../components/slider";
-import Advertisement from '../components/advertisement'
+import Advertisement from "../components/advertisement";
+
+const isWindow = typeof window !== "undefined";
 
 const Index = () => {
   return (
@@ -14,18 +16,22 @@ const Index = () => {
         <NewsConsumer>
           {({ state }) => (
             <div>
-              <div className="category">
-                <Category />
-              </div>
-              <div className="asection">
-                <Advertisement title="Dự án mới" />
-              </div>
-              <div className="section">
-                <Slider title="Tin nổi bật" data={state.topNews} />
-              </div>
-              <div className="section">
-                <Slider title="Tin mới cập nhật" data={state.hotNews} />
-              </div>
+              {isWindow && (
+                <div>
+                  <div className="category">
+                    <Category />
+                  </div>
+                  <div className="asection">
+                    <Advertisement title="Dự án mới" />
+                  </div>
+                  <div className="section">
+                    <Slider title="Tin nổi bật" data={state.topNews} />
+                  </div>
+                  <div className="section">
+                    <Slider title="Tin mới cập nhật" data={state.hotNews} />
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </NewsConsumer>

@@ -1,28 +1,31 @@
-import React from 'react'
-import css from 'styled-jsx/css'
+import React from "react";
+import css from "styled-jsx/css";
+import { array } from "prop-types";
 
-import Card from '../card'
+import Card from "../card";
 
 const GridItems = props => {
-  const {
-    data = [],
-  } = props
+  const { data = [] } = props;
 
   return (
     <div>
       <div className="row-items">
-        {data.map(item => <div
-          className="col-item"
-          key={item.id}>
-          <Card {...item} />
-        </div>)}
+        {data.map((item, i) => (
+          <div className="col-item" key={i}>
+            <Card {...item} />
+          </div>
+        ))}
       </div>
       <style jsx>{styles}</style>
     </div>
-  )
-}
+  );
+};
 
-export default GridItems
+GridItems.propTypes = {
+  data: array
+};
+
+export default GridItems;
 
 const styles = css`
   .row-items {
@@ -58,4 +61,4 @@ const styles = css`
       max-width: 50%;
     }
   }
-`
+`;

@@ -1,33 +1,27 @@
-import React, { useState, useContext, useEffect, createRef } from 'react'
-import css from 'styled-jsx/css'
-import {
-  Button,
-  Modal,
-  Input,
-  Menu,
-  Dropdown,
-  Icon,
-  Avatar,
-  Badge,
-} from 'antd'
-import { isMobileOnly } from 'react-device-detect'
-import GoogleMapReact from 'google-map-react'
+/* global google */
+import React, { useState, useContext, useEffect, createRef } from "react";
+import css from "styled-jsx/css";
+import { Button, Modal, Menu, Dropdown, Icon, Avatar, Badge } from "antd";
+import { isMobileOnly } from "react-device-detect";
+import GoogleMapReact from "google-map-react";
 
-import LoginForm from './loginForm'
-import AuthContext from './authContext'
-import { googleMapKey } from '../config'
+import LoginForm from "./loginForm";
+import AuthContext from "./authContext";
+import { googleMapKey } from "../config";
+
+const isWindow = typeof window !== "undefined";
 
 const logoUrl =
-  'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+  "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
 
 const Header = () => {
   const { isLogin, login, googleLogin, facebookLogin, logout } = useContext(
     AuthContext
   );
-  const [showLogin, setShowLogin] = useState(false)
-  const searchInput = createRef()
-  let searchBox
-  const center = { lat: 10.777889, lng: 106.695444 }
+  const [showLogin, setShowLogin] = useState(false);
+  const searchInput = createRef();
+  let searchBox;
+  const center = { lat: 10.777889, lng: 106.695444 };
 
   const menu = (
     <Menu>
@@ -40,14 +34,14 @@ const Header = () => {
         </a>
       </Menu.Item> */}
     </Menu>
-  )
+  );
   const menuLogin = (
     <Menu>
       <Menu.Item>
         <div onClick={logout}>Đăng xuất</div>
       </Menu.Item>
     </Menu>
-  )
+  );
 
   const apiLoaded = maps => {
     // vietnam bounding boxes
@@ -55,22 +49,22 @@ const Header = () => {
     const vietnamBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(8.1790665, 102.14441),
       new google.maps.LatLng(23.393395, 114.3337595)
-    )
+    );
 
     searchBox = new maps.places.SearchBox(searchInput.current, {
-      bounds: vietnamBounds,
-    })
-    searchBox.addListener('places_changed', onPlacesChanged)
-  }
+      bounds: vietnamBounds
+    });
+    searchBox.addListener("places_changed", onPlacesChanged);
+  };
 
   // search box
   const onPlacesChanged = () => {
     const [
-      { formatted_address = '', name = '', geometry: { location } = {} } = {},
-    ] = searchBox.getPlaces() || []
+      { formatted_address = "", name = "", geometry: { location } = {} } = {}
+    ] = searchBox.getPlaces() || [];
 
-    console.log({ formatted_address, name, location })
-  }
+    console.log({ formatted_address, name, location });
+  };
 
   useEffect(() => {
     setShowLogin(false);
@@ -83,8 +77,12 @@ const Header = () => {
           <img src={logoUrl} alt="logo" className="img-logo" />
         </div>
         <div className="search">
-          {!isMobileOnly && (
-            <input ref={searchInput} placeholder="Tìm kiếm" className="search-place" />
+          {!isMobileOnly && isWindow && (
+            <input
+              ref={searchInput}
+              placeholder="Tìm kiếm"
+              className="search-place"
+            />
           )}
           <Button shape="circle" icon="search" />
         </div>
@@ -146,8 +144,8 @@ const Header = () => {
       <GoogleMapReact
         bootstrapURLKeys={{
           key: googleMapKey,
-          language: 'vi',
-          libraries: ['places'],
+          language: "vi",
+          libraries: ["places"]
         }}
         center={center}
         defaultZoom={15}
@@ -200,14 +198,13 @@ const styles = css`
     font-size: 15px;
     border: 0;
     border-bottom: 1px solid #cdcdcd;
-    width: 400px;
+    width: 370px;
     -webkit-box-shadow: none;
     box-shadow: 0;
-    color: #ff4d4f;
     outline: none;
   }
 
-  .search-place:focus{
+  .search-place:focus {
     border-bottom-color: #ff4d4f;
   }
 

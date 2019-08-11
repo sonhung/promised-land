@@ -1,11 +1,13 @@
-import React from 'react'
-import css from 'styled-jsx/css'
-import { Row, Col, Breadcrumb, Icon, Button } from 'antd'
+import React from "react";
+import css from "styled-jsx/css";
+import { Row, Col, Breadcrumb, Icon, Button } from "antd";
+import { Link } from "react-scroll";
 
-import { HOUSE_TYPE } from '../../constants'
-import { formatPrice } from '../../utils'
-import wcIcon from '../../assets/images/wc.svg'
-import bedRoom from '../../assets/images/bedroom.svg'
+import { HOUSE_TYPE } from "../../constants";
+import { formatPrice } from "../../utils";
+import wcIcon from "../../assets/images/wc.svg";
+import bedRoom from "../../assets/images/bedroom.svg";
+import PageMap from "./pageMap";
 
 const PageDetail = props => {
   const {
@@ -23,6 +25,8 @@ const PageDetail = props => {
     description,
     width,
     height,
+    nearPlaces = [],
+    location = {}
   } = props;
 
   return (
@@ -56,6 +60,9 @@ const PageDetail = props => {
               style={{ color: "rgba(0,0,0,.35)", fontSize: "23px" }}
             />
             <span>{raw_address}</span>
+            <Link className="link-map" to="view-map" spy smooth duration={500}>
+              Xem bản đồ
+            </Link>
           </div>
           <div className="description">{description}</div>
           <div className="detail">
@@ -129,6 +136,9 @@ const PageDetail = props => {
               )}
             </Row>
           </div>
+          <div className="map" name="view-map">
+            <PageMap location={location} nearPlaces={nearPlaces} />
+          </div>
         </Col>
         <Col lg={8} md={10}>
           <div className="info">
@@ -199,6 +209,13 @@ const styles = css`
     position: relative;
     top: -2px;
     margin-left: 10px;
+  }
+
+  .filed :global(a) {
+    position: relative;
+    top: -2px;
+    color: #ff4d4f;
+    margin-left: 7px;
   }
 
   sup {
@@ -287,7 +304,7 @@ const styles = css`
     font-weight: 700;
     color: #ff4d4f;
     position: relative;
-    top: 5px
+    top: 5px;
   }
 
   @media only screen and (max-width: 767px) {

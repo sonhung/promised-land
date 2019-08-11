@@ -4298,7 +4298,7 @@ lodash.keys@^3.1.2:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
-lodash.throttle@^4.0.0:
+lodash.throttle@^4.0.0, lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://npm.veep.tech/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
@@ -6118,6 +6118,14 @@ react-multi-carousel@^2.2.2:
   version "2.2.2"
   resolved "https://npm.veep.tech/react-multi-carousel/-/react-multi-carousel-2.2.2.tgz#4c7c0b1352fef67565a0f49a7e43a21ccbedf2b2"
   integrity sha512-fdU8sfj5bOwdEztKrIj634RtMr/gC0gzk536UbF8DXf/mGjnh8Z9tPLCun3dELi/TdhlB+9WGSkpJoQdVdAr8Q==
+
+react-scroll@^1.7.12:
+  version "1.7.12"
+  resolved "https://npm.veep.tech/react-scroll/-/react-scroll-1.7.12.tgz#6bd453d04ec70e03bebe04d8b43b5d91e3d776cc"
+  integrity sha512-hvi3MixtYQC1FADODqWx6MSYaShBbsq7ElQBny/pmzrGtF4ubGLuDOGpzP3mvJjWZ66Cepujt4PBjysYV3itwg==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.5.8"
 
 react-slick@^0.24.0, react-slick@~0.24.0:
   version "0.24.0"
