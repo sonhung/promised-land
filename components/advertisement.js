@@ -71,17 +71,17 @@ const adsData = [
   {
     name: 'Căn hộ cao cấp Vincity quận 9',
     address: 'Nguyễn Xiển, Long Bình, Quận 9, TP. Hồ Chí Minh',
-    src: 'https://cdn.luxstay.com/home/event/event_5_1563156898.jpg'
+    src: 'https://cdn.luxstay.com/home/event/event_5_1563156898.jpg',
   },
   {
     name: 'Asiana Capella',
     address: '184 Trần Văn Kiểu, P. 10, Q. 6, TP. Hồ Chí Minh',
-    src: 'https://cdn.luxstay.com/home/event/event_1_1563507400.jpg'
+    src: 'https://cdn.luxstay.com/home/event/event_1_1563507400.jpg',
   },
   {
     name: 'Charmington Iris',
     address: '76 Tôn Thất Thuyết, P.16, Q.4, TP. Hồ Chí Minh',
-    src: 'https://cdn.luxstay.com/home/event/event_1_1563941376.jpg'
+    src: 'https://cdn.luxstay.com/home/event/event_1_1563941376.jpg',
   },
   {
     name: 'Căn hộ Venus Quận 8',
@@ -97,7 +97,7 @@ const adsData = [
     name: ' Căn hộ Riva Park Nguyễn Tất Thành',
     address: '504 Nguyễn Tất Thành, Phường 18, Quận 4, TP. Hồ Chí Minh',
     src: 'https://cdn.luxstay.com/home/event/event_1_1564642789.png',
-  }
+  },
 ]
 const AdsComponent = props => {
   const { title = "", data = [], type } = props;
@@ -114,9 +114,9 @@ const AdsComponent = props => {
         autoPlaySpeed={5000}
         infinite
       >
-        {adsData.map((item, i) => (<div>
-          {type === 'image' && <AdsImage key={i} src={item.src} />}
-          {type === 'text' && <AdsText key={i}>
+        {adsData.map((item, i) => (<div key={i}>
+          {type === 'image' && <AdsImage  src={item.src} />}
+          {type === 'text' && <AdsText >
             <AdsName>{item.name}</AdsName>
             <AdsAddress className="address">{item.address}</AdsAddress>
           </AdsText>}

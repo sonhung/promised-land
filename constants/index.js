@@ -3,60 +3,60 @@ import DefaultImage from "../assets/images/default-image.jpeg";
 export const DEFAULT_IMAGE = DefaultImage;
 
 export const HOUSE_TYPE = {
-  house: "Nhà đất",
-  apartment: "Căn hộ chung cư",
-  guestroom: "Phòng trọ",
-  villa: "Biệt thự"
+  'nha-dat': "Nhà đất",
+  'can-ho': "Căn hộ chung cư",
+  'phong-tro': "Phòng trọ",
+  'biet-thu': "Biệt thự",
 };
 
 export const PLACES_TYPE = [
   {
     type: "school",
-    text: "Trường học"
+    text: "Trường học",
   },
   {
     type: "hospital",
-    text: "Bệnh viện"
+    text: "Bệnh viện",
   },
   {
     type: "supermaket",
-    text: "Siêu thị"
+    text: "Siêu thị",
   },
   {
     type: "market",
-    text: "Chợ"
+    text: "Chợ",
   },
   {
     type: "park",
-    text: "Công viên"
+    text: "Công viên",
   },
   {
     type: "drink_food",
-    text: "Ăn/Uống"
-  }
+    text: "Ăn/Uống",
+  },
 ]
 
 export const TYPE = [
   {
-    value: 'all',
-    label: 'Tất cả loại bất động sản'
+    value: 'bat-dong-san',
+    label: 'Tất cả loại bất động sản',
   },
   {
-    value: 'house',
-    label: 'Nhà đất'
+    value: 'nha-dat',
+    label: 'Nhà đất',
   },
   {
-    value: 'apartment',
-    label: 'Căn hộ'
+    value: 'can-ho',
+    label: 'Căn hộ',
   },
   {
-    value: 'villa',
-    label: 'Biệt thự'
+    value: 'biet-thu',
+    label: 'Biệt thự',
   },
   {
-    value: 'guestroom',
-    label: 'Phòng trọ'
-  }
+    value: 'phong-tro',
+    label: 'Phòng trọ',
+  },
 ]
 
 export const SEARCH_TYPE = {...HOUSE_TYPE}

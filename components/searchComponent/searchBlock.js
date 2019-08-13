@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Router from "next/router";
 import css from "styled-jsx/css";
+import { string } from "prop-types";
 import Select from "react-select";
 import { Row, Col } from "antd";
+import { find, get } from "lodash";
 
 import PopoverSlider from "./PopoverSlider";
 import { provinces, districts } from "../../constants/administrativeUnit";
@@ -14,45 +17,50 @@ const priceMark = {
   0: {
     style: {
       marginLeft: "35px",
-      color: "#222"
+      color: "#222",
     },
-    label: "Giá tối thiểu"
+    label: "Giá tối thiểu",
   },
   30000000000: {
     style: {
       color: "#222",
       left: "none",
       right: "0",
-      transform: "none"
+      transform: "none",
     },
-    label: "Giá tối đa"
-  }
+    label: "Giá tối đa",
+  },
 };
 
 const areaMark = {
   0: {
     style: {
       marginLeft: "53px",
-      color: "#222"
+      color: "#222",
     },
-    label: "Diện tích tối thiểu"
+    label: "Diện tích tối thiểu",
   },
   500: {
     style: {
       color: "#222",
       left: "none",
       right: "0",
-      transform: "none"
+      transform: "none",
     },
-    label: "Diện tích tối đa"
-  }
+    label: "Diện tích tối đa",
+  },
 };
 
 const Search = props => {
-  const [province, setProvince] = useState();
+  const { type = "", location = "" } = props;
+
+  // get default value from url
+  const defaultType = find(TYPE, item => item.value === type);
+  const defaultProvince = find(provinces, item => item.type === location);
+  const [province, setProvince] = useState(defaultProvince);
   const [district, setDistrict] = useState();
+  const [houseType, setHouseType] = useState(defaultType);
   const [districtsShow, setDistrictsShow] = useState([]);
-  const [houseType, setHouseType] = useState();
   // for price
   const [priceConfig, setPriceConfig] = useState([0, maxPrice]);
   const [priceStep, setPriceStep] = useState(100000000);
@@ -63,7 +71,6 @@ const Search = props => {
   const chooseProvince = data => {
     setProvince(data);
     setDistrictsShow(districts[data.type]);
-    if (data !== province) setDistrict(null);
   };
 
   const chooseDistrict = data => {
@@ -96,6 +103,16 @@ const Search = props => {
     console.log("douma ahihi");
   };
 
+  useEffect(() => {
+    if (houseType !== defaultType || province !== defaultProvince) {
+      const type = get(houseType, "value", "bat-dong-san");
+      const location = get(province, "type", "toan-quoc");
+      console.log(district);
+      const pathname = Router.pathname || Router.route;
+      Router.push(`${pathname}/${type}/${location}`);
+    }
+  }, [houseType, province]);
+
   return (
     <div className="search">
       <Row>
@@ -103,8 +120,8 @@ const Search = props => {
           <div className="filed">
             <Select
               placeholder="Tất cả loại bất động sản"
-              value={houseType}
               onChange={chooseHouseType}
+              defaultValue={defaultType}
               options={TYPE}
             />
           </div>
@@ -113,7 +130,7 @@ const Search = props => {
           <div className="filed">
             <Select
               placeholder="Tỉnh/Thành"
-              value={province}
+              defaultValue={defaultProvince}
               onChange={chooseProvince}
               options={provinces}
             />
@@ -123,14 +140,13 @@ const Search = props => {
           <div className="filed">
             <Select
               placeholder="Quận/Huyện"
-              value={district}
               onChange={chooseDistrict}
               options={districtsShow}
             />
           </div>
         </Col>
         <Col lg={4} xs={12}>
-          <div className="fileddsds">
+          <div className="filed">
             <PopoverSlider
               rangeValue={priceConfig}
               maxRangge={maxPrice}
@@ -147,7 +163,7 @@ const Search = props => {
           </div>
         </Col>
         <Col lg={4} xs={12}>
-          <div className="fileddd">
+          <div className="filed">
             <PopoverSlider
               rangeValue={areaConfig}
               maxRangge={maxArea}
@@ -169,7 +185,10 @@ const Search = props => {
   );
 };
 
-Search.propTypes = {};
+Search.propTypes = {
+  type: string,
+  location: string,
+};
 
 export default Search;
 

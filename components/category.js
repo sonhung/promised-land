@@ -6,52 +6,52 @@ import { Row, Col } from 'antd'
 import dynamic from 'next/dynamic'
 
 const Carousel = dynamic(import('react-multi-carousel'), {
-  ssr: false
+  ssr: false,
 });
 
 const CATEGORIES = [
   {
-    type: "apartment",
+    type: "can-ho",
     name: "Căn hộ",
     img:
-      "https://cdn.tuoitre.vn/thumb_w/586/2019/3/30/photo-1-15539554037881852505636.jpg"
+      "https://cdn.tuoitre.vn/thumb_w/586/2019/3/30/photo-1-15539554037881852505636.jpg",
   },
   {
-    type: "villa",
+    type: "biet-thu",
     name: "Biệt thự",
     img:
-      "https://batdongsanbinhduong.com.vn/wp-content/uploads/2017/10/mau-biet-thu-2-tang-hinh-chu-l.jpg"
+      "https://batdongsanbinhduong.com.vn/wp-content/uploads/2017/10/mau-biet-thu-2-tang-hinh-chu-l.jpg",
   },
   {
-    type: "house",
+    type: "nha-dat",
     name: "Nhà đất",
     img:
-      "https://nhadat24h.com/uploads/bds/201512/30/80987_141743_nha--quan-12_.jpg"
+      "https://nhadat24h.com/uploads/bds/201512/30/80987_141743_nha--quan-12_.jpg",
   },
   {
-    type: "guestroom",
+    type: "phong-tro",
     name: "Phòng trọ",
     img:
-      "https://qd4zxf8cdsvo9oem-zippykid.netdna-ssl.com/wp-content/uploads/2018/07/large-7D5-81F691.png"
-  }
+      "https://qd4zxf8cdsvo9oem-zippykid.netdna-ssl.com/wp-content/uploads/2018/07/large-7D5-81F691.png",
+  },
 ];
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    paritialVisibilityGutter: 60
+    paritialVisibilityGutter: 60,
   },
   tablet: {
     breakpoint: { max: 1024, min: 414 },
     items: 2,
-    paritialVisibilityGutter: 50
+    paritialVisibilityGutter: 50,
   },
   mobile: {
     breakpoint: { max: 414, min: 0 },
     items: 1,
-    paritialVisibilityGutter: 30
-  }
+    paritialVisibilityGutter: 30,
+  },
 };
 
 const Category = props => {
@@ -69,8 +69,8 @@ const Category = props => {
             >
               <a
                 className="category-item"
-                href={`/category/${item.type}`}
-                as={`/category/${item.type}`}
+                href={`/category/${item.type}/toan-quoc`}
+                as={`/category/${item.type}/toan-quoc`}
               >
                 <img src={item.img} className="category-img" />
                 <div className="item-name">{item.name}</div>
@@ -84,8 +84,8 @@ const Category = props => {
           {CATEGORIES.map((item, i) => (
             <a
               key={item.type}
-              href={`/category/${item.type}`}
-              as={`/category/${item.type}`}
+              href={`/category/${item.type}/toan-quoc`}
+              as={`/category/${item.type}/toan-quoc`}
             >
               <div className={`category-item ${i < 3 ? "mg-r-20" : ""}`}>
                 <img src={item.img} className="category-img" />

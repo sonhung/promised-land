@@ -21,16 +21,16 @@ const Category = props => {
 
 // get news data by id from server
 Category.getInitialProps = async ({ res, req }) => {
-  console.log('douma')
   const {
     params: {
       type,
+      location,
     } = {},
     protocol,
   } = req
   const url = `${protocol}://${req.get("Host")}${searchUrl}`
-  const { data } = await makeGetRequest(url, { type })
-  return { data, type }
+  const { data } = await makeGetRequest(url, { type, location })
+  return { data, type, location }
 };
 
 export default Category;

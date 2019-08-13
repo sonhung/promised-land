@@ -20,7 +20,7 @@ app
     server.use(express.json());
 
     // Routes masking category
-    server.get("/category/:type", (req, res) => {
+    server.get("/category/:type/:location", (req, res) => {
       const actualPage = '/category'
       app.render(req, res, actualPage)
     });
