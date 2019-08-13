@@ -1,13 +1,13 @@
-import React from "react";
-import css from "styled-jsx/css";
+import React from 'react'
+import css from 'styled-jsx/css'
 
-import { NewsProvider, NewsConsumer } from "../components/newsContext";
-import Layout from "../components/layout";
-import Category from "../components/category";
-import Slider from "../components/slider";
-import Advertisement from "../components/advertisement";
+import { NewsProvider, NewsConsumer } from '../components/newsContext'
+import Layout from '../components/layout'
+import Category from '../components/houseType'
+import Slider from '../components/slider'
+import Advertisement from '../components/advertisement'
 
-const isWindow = typeof window !== "undefined";
+const isWindow = typeof window !== 'undefined'
 
 const Index = () => {
   return (
@@ -38,10 +38,10 @@ const Index = () => {
       </NewsProvider>
       <style jsx>{styles}</style>
     </Layout>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
 
 const styles = css`
   .category {
@@ -57,4 +57,4 @@ const styles = css`
       margin: 40px -5px;
     }
   }
-`;
+`
