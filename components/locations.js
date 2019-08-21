@@ -104,7 +104,7 @@ const CustomLeftArrow = ({ onClick, ...rest }) => {
 const Category = props => {
   return (
     <div className="location">
-      <div className="title">Địa điểm nổi bật</div>
+      <div className="title">{props.title}</div>
       <BrowserView>
         <div className="location-row" >
           {LOCATIONS.map(item => (

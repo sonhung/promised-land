@@ -26,7 +26,7 @@ const Index = () => {
                     <Advertisement title="Dự án mới" type="image" />
                   </div>
                   <div className="section">
-                    <Locations />
+                    <Locations title="Điểm nóng giao dịch" />
                   </div>
                   <div className="section">
                     <Slider title="Tin nổi bật" data={state.topNews} />
