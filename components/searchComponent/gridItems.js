@@ -25,7 +25,7 @@ const GridItems = props => {
       </div>
       <div className="pagination">
         {isWindow && <Pagination
-          defaultCurrent={6}
+          defaultCurrent={1}
           total={30000}
           defaultPageSize={20}
           size={`${isMobileOnly ? 'small' : ''}`}

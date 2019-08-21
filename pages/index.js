@@ -3,7 +3,8 @@ import css from 'styled-jsx/css'
 
 import { NewsProvider, NewsConsumer } from '../components/newsContext'
 import Layout from '../components/layout'
-import Category from '../components/houseType'
+import HouseType from '../components/houseType'
+import Locations  from '../components/locations'
 import Slider from '../components/slider'
 import Advertisement from '../components/advertisement'
 
@@ -19,10 +20,13 @@ const Index = () => {
               {isWindow && (
                 <div>
                   <div className="category">
-                    <Category />
+                    <HouseType />
                   </div>
-                  <div className="asection">
+                  <div className="section">
                     <Advertisement title="Dự án mới" type="image" />
+                  </div>
+                  <div className="section">
+                    <Locations />
                   </div>
                   <div className="section">
                     <Slider title="Tin nổi bật" data={state.topNews} />
@@ -45,7 +49,7 @@ export default Index
 
 const styles = css`
   .category {
-    margin: 20px 0;
+    margin: 20px 0 -20px 0;
   }
 
   .section {

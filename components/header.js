@@ -43,22 +43,22 @@ const Header = () => {
 
   const apiLoaded = maps => {
     // vietnam bounding boxes
-    // // data get from https://gist.github.com/graydon/11198540
-    // const vietnamBounds = new google.maps.LatLngBounds(
-    //   new google.maps.LatLng(8.1790665, 102.14441),
-    //   new google.maps.LatLng(23.393395, 114.3337595)
-    // );
+    // data get from https://gist.github.com/graydon/11198540
+    const vietnamBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(8.1790665, 102.14441),
+      new google.maps.LatLng(23.393395, 114.3337595)
+    );
 
-    // searchBox = new maps.places.SearchBox(searchInput.current, {
-    //   bounds: vietnamBounds
-    // });
-    // searchBox.addListener("places_changed", onPlacesChanged);
+    searchBox = new maps.places.SearchBox(searchInput.current, {
+      bounds: vietnamBounds,
+    });
+    searchBox.addListener("places_changed", onPlacesChanged);
   };
 
   // search box
   const onPlacesChanged = () => {
     const [
-      { formatted_address = "", name = "", geometry: { location } = {} } = {}
+      { formatted_address = "", name = "", geometry: { location } = {} } = {},
     ] = searchBox.getPlaces() || [];
 
     console.log({ formatted_address, name, location });
@@ -71,9 +71,9 @@ const Header = () => {
   return (
     <div>
       <div className="header">
-        <div className="logo">
+        <a href="/" className="logo">
           <img src={logoUrl} alt="logo" className="img-logo" />
-        </div>
+        </a>
         <div className="search">
           <input
             ref={searchInput}
@@ -97,7 +97,7 @@ const Header = () => {
           <div className="menu-desktop">
             <Button type="danger" ghost onClick={() => setShowLogin(true)}>
               Đăng nhập
-              </Button>
+            </Button>
           </div>
           {!isMobileOnly && isLogin && (
             <div className="browser-menu">
@@ -134,7 +134,7 @@ const Header = () => {
         bootstrapURLKeys={{
           key: googleMapKey,
           language: "vi",
-          libraries: ["places"]
+          libraries: ["places"],
         }}
         center={center}
         defaultZoom={15}

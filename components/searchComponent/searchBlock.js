@@ -57,10 +57,11 @@ const Search = props => {
   // get default value from url
   const defaultType = find(TYPE, item => item.value === type)
   const defaultProvince = find(provinces, item => item.type === location)
+  const defaultDistrict = districts[location] || []
   const [province, setProvince] = useState(defaultProvince)
   const [district, setDistrict] = useState()
   const [houseType, setHouseType] = useState(defaultType)
-  const [districtsShow, setDistrictsShow] = useState([])
+  const [districtsShow, setDistrictsShow] = useState(defaultDistrict)
   // for price
   const [priceConfig, setPriceConfig] = useState([0, maxPrice])
   const [priceStep, setPriceStep] = useState(100000000)

@@ -106,7 +106,7 @@ export default Category;
 
 const styles = css`
   .title {
-    margin- bottom: 13px;
+    margin-bottom: 13px;
     font-size: 22px;
     font-weight: 700;
   }
@@ -122,7 +122,7 @@ const styles = css`
   }
 
   .mg-r-20 {
-    margin- right: 20px;
+    margin-right: 20px;
   }
 
   .category-img {

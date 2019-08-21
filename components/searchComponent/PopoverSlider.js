@@ -17,6 +17,12 @@ const PopoverContainer = styled.div`
   }
 `;
 
+const ButtonBlock = styled.div`
+  button {
+    height: 38px;
+  }
+`
+
 const PopoverRange = styled.div`
   font-size: 16px;
   font-weight: 500;
@@ -40,7 +46,7 @@ const PopoverSlider = props => {
     changeValue,
     apply,
     position,
-    buttonText
+    buttonText,
   } = props;
 
   const [visible, setVisible] = useState();
@@ -115,11 +121,11 @@ const PopoverSlider = props => {
         content={popoverBlock}
         trigger="click"
       >
-        <div ref={buttonRef}>
+        <ButtonBlock ref={buttonRef}>
           <Button block onClick={() => setVisible(true)}>
             {buttonText}
           </Button>
-        </div>
+        </ButtonBlock>
       </Popover>
     </div>
   );
@@ -135,7 +141,7 @@ PopoverSlider.propTypes = {
   changeValue: func,
   apply: func,
   position: string,
-  buttonText: string
+  buttonText: string,
 };
 
 export default PopoverSlider;
