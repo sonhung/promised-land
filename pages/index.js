@@ -22,10 +22,10 @@ const Index = () => {
                   <div className="category">
                     <HouseType />
                   </div>
-                  <div className="section">
-                    <Advertisement title="Dự án mới" type="image" />
+                  <div className="ads">
+                    <Advertisement type="image" />
                   </div>
-                  <div className="section">
+                  <div className="location">
                     <Locations title="Điểm nóng giao dịch" />
                   </div>
                   <div className="section">
@@ -49,16 +49,24 @@ export default Index
 
 const styles = css`
   .category {
-    margin: 20px 0 -20px 0;
+    margin: 0 -5px 50px;
+  }
+
+  .ads {
+    margin: 0 -10px;
+  }
+
+  .location {
+    margin: 60px -5px 80px -5px;
   }
 
   .section {
-    margin: 70px -5px;
+    margin: 50px -10px;
   }
 
   @media only screen and (max-width: 767px) {
     .section {
-      margin: 40px -5px;
+      margin: 40px -10px;
     }
   }
 `

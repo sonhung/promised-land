@@ -69,7 +69,7 @@ const Header = () => {
   }, [isLogin]);
 
   return (
-    <div>
+    <div className="header-block">
       <div className="header">
         <a href="/" className="logo">
           <img src={logoUrl} alt="logo" className="img-logo" />
@@ -149,6 +149,12 @@ const Header = () => {
 export default Header;
 
 const styles = css`
+  .header-block {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100vw;
+  }
   .header {
     display: flex;
     flex: 1;
@@ -178,6 +184,7 @@ const styles = css`
 
   .search :global(button) {
     background-color: #ff4d4f;
+    border: 1px solid #ff4d4f;
     color: #fff;
     margin-left: 7px;
   }

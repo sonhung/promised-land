@@ -106,7 +106,7 @@ const styles = css`
   }
 
   .slide-item {
-    height: 340px;
+    height: 330px;
     margin: 0 5px;
   }
 

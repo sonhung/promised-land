@@ -63,13 +63,13 @@ const responsive = {
 
 const RightArrow = styled.div`
   position: absolute;
-  top: 75px;
+  top: 80px;
   right: 10px;
 `;
 
 const LeftArrow = styled.div`
   position: absolute;
-  top: 75px;
+  top: 80px;
   left: 20px;
 `;
 
@@ -169,7 +169,7 @@ const styles = css`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 230px;
+    height: 290px;
     width: 100%;
   }
 
