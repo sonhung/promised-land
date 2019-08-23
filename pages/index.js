@@ -49,7 +49,7 @@ export default Index
 
 const styles = css`
   .category {
-    margin: 0 -5px 50px;
+    margin: 0 -5px 20px;
   }
 
   .ads {
@@ -57,11 +57,11 @@ const styles = css`
   }
 
   .location {
-    margin: 60px -5px 80px -5px;
+    margin: 30px -5px 50px -5px;
   }
 
   .section {
-    margin: 50px -10px;
+    margin: 10px -10px;
   }
 
   @media only screen and (max-width: 767px) {

@@ -183,7 +183,11 @@ const styles = css`
   .row-item {
     margin: 7px 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
+  }
+
+  .row-item :global(span) {
+    font-weight: 600;
   }
 
   .row-item :global(i) {

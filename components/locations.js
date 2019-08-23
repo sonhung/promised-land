@@ -169,7 +169,7 @@ const styles = css`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 290px;
+    height: 250px;
     width: 100%;
   }
 
