@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import css from 'styled-jsx/css'
 import { array } from 'prop-types'
 import { Pagination } from 'antd'
 import { isMobileOnly } from 'react-device-detect'
+import { pick } from 'lodash'
 
 import Card from '../card'
+import SearchContext from './searchContext'
 
 const isWindow = typeof window !== 'undefined'
 
 const GridItems = props => {
   const {
     data = [],
-    choosePage,
-  } = props;
+  } = props
+
+  const {
+    newsData,
+    getNews,
+  } = useContext(SearchContext)
+
+  const [showData, setShowData] = useState(data)
+  const query = pick(props, ['location', 'type', 'lat', 'lng'])
+
+  const choosePage = page => {
+    getNews(page, query, (data) => setShowData(data))
+  }
 
   return (
     <div>
       <div className="row-items">
-        {data.map((item, i) => (
+        {showData.map((item, i) => (
           <div className="col-item" key={i}>
             <Card {...item} />
           </div>

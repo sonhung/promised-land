@@ -16,7 +16,7 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  children: any
+  children: any,
 };
 
 export default Layout;
@@ -30,6 +30,7 @@ const styles = css`
   .content {
     padding: 30px 50px;
     min-height: calc(100vh - 152px);
+    margin-top: 60px;
   }
 
   @media only screen and (max-width: 768px) {

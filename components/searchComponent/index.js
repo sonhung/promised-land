@@ -10,10 +10,6 @@ const Index = props => {
   const { data, type, location } = props
   const title = SEARCH_TYPE[type] || 'Tin nổi bật'
 
-  const choosePage = page => {
-    console.log('page here', page)
-  }
-
   return (
     <div>
       <div className="search">
@@ -23,7 +19,7 @@ const Index = props => {
         <Ads type="text" />
       </div>
       <div className="title">{title}</div>
-      <GridItems data={data} choosePage={choosePage} />
+      <GridItems {...props} />
       <style jsx>{styles}</style>
     </div>
   );

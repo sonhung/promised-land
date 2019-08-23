@@ -3,6 +3,7 @@ import css from 'styled-jsx/css'
 import Head from 'next/head'
 
 import { makeGetRequest } from '../utils/makeRequest'
+import { SearchProvider } from '../components/searchComponent/searchContext'
 import Layout from '../components/layout'
 import Search from '../components/searchComponent'
 import { searchUrl } from '../constants/router'
@@ -14,7 +15,9 @@ const Category = props => {
         <meta name="title" content={`title`} />
         <meta name="og:image" src={`seoImage`} />
       </Head>
-      <Search {...props} />
+      <SearchProvider>
+        <Search {...props} />
+      </SearchProvider>
     </Layout>
   )
 }

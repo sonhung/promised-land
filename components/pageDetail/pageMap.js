@@ -15,7 +15,7 @@ import HospitalLocationIcon from "../../assets/images/hospital-location.svg";
 
 const LOCATION_ICON = {
   hospital: HospitalLocationIcon,
-  school: SchollLocationIcon
+  school: SchollLocationIcon,
 };
 
 const Location = styled.img`
@@ -40,12 +40,12 @@ const PageMap = props => {
   const [placesShow, setPlacesShow] = useState(defaultPlaces);
   const [activeType, setActiveType] = useState("school");
 
-  const center = { lat, lng };
-  const defaultZoom = 14;
+  const center = { lat, lng }
+  const defaultZoom = 14
   const options = {
     fullscreenControl: false,
     zoomControl: false,
-    clickableIcons: false
+    clickableIcons: false,
   };
 
   const apiLoaded = (map, maps) => {
@@ -57,7 +57,7 @@ const PageMap = props => {
       fillOpacity: 0.35,
       map: map,
       center: center,
-      radius: 1200
+      radius: 1200,
     });
     circlePolygon.setMap(map);
   };
@@ -99,7 +99,7 @@ const PageMap = props => {
           bootstrapURLKeys={{
             key: googleMapKey,
             language: "vi",
-            libraries: ["places"]
+            libraries: ["places"],
           }}
           center={center}
           defaultZoom={defaultZoom}
@@ -125,7 +125,7 @@ const PageMap = props => {
 
 PageMap.propTypes = {
   nearPlaces: array,
-  location: object
+  location: object,
 };
 
 export default PageMap;

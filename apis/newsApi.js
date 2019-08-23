@@ -25,93 +25,98 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
     saler: "5d448fd93eef6b653eb49812",
     location: {
       name: "Benh vien Q 12",
-      lat: 10.778292,
-      lng: 106.680386
+      lat: 10.778659,
+      lng: 106.673144,
     },
     nearPlaces: [
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien Q 12",
         type: "hospital",
         lat: 10.778659,
-        lng: 106.673144
+        lng: 106.673144,
       },
       {
         name: "Benh vien meo biet",
         type: "hospital",
         lat: 10.788324,
-        lng: 106.67663
+        lng: 106.67663,
       },
       {
         name: "Trường XXX",
         type: "school",
         lat: 10.775903,
-        lng: 106.682434
+        lng: 106.682434,
       },
       {
         name: "Truong YYY",
         type: "school",
         lat: 10.776376,
-        lng: 106.683676
-      }
-    ]
+        lng: 106.683676,
+      },
+    ],
   },
   {
     _id: "5d448fd93eef6b653eb49813",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778659,
+      lng: 106.673144,
+    },
     title:
       "Bán Gấp 2 Căn Nhà Phố Kinh Doanh Thống Nhất Nối Dài, 1trệt 1lửng 2lầu.",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -134,14 +139,19 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
-    saler: "5d448fd93eef6b653eb49812"
+    saler: "5d448fd93eef6b653eb49812",
   },
   {
     _id: "5d448fdc3eef6b653eb49814",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778659,
+      lng: 106.673144,
+    },
     title:
       "#Cần Tiền sang nhanh căn nhà đường Tô Ngọc Vân,nhà mới đúc 1trệt 2lầu thiết kế sang tron",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -164,14 +174,19 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
-    saler: "5d448fd93eef6b653eb49812"
+    saler: "5d448fd93eef6b653eb49812",
   },
   {
     _id: "5d448fde3eef6b653eb49816",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778659,
+      lng: 106.673144,
+    },
     title:
       "Bán gấp nhà 3 lầu 80m2 mới 100% SHR, đường xe hơi, ngay Coopmart Bình Triệu , có BIDV 70%",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -194,14 +209,19 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_8_1563125189.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
-      "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?"
+      "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
     ],
     house_type: "facade",
-    saler: "5d448fde3eef6b653eb49815"
+    saler: "5d448fde3eef6b653eb49815",
   },
   {
     _id: "5d448fe13eef6b653eb49817",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778659,
+        lng: 106.673144,
+    },
     title:
       "Bán nhà ngay chợ Hiệp Bình,1 trệt 3 lầu ,sổ hồng riêng.Cách Phạm Văn Đồng 200m HBC",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -224,14 +244,19 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
-    saler: "5d448fde3eef6b653eb49815"
+    saler: "5d448fde3eef6b653eb49815",
   },
   {
     _id: "5d448fdc3eef6b653eb49814",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778659,
+      lng: 106.673144,
+    },
     title:
       "#Cần Tiền sang nhanh căn nhà đường Tô Ngọc Vân,nhà mới đúc 1trệt 2lầu thiết kế sang tron",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -253,14 +278,19 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
-    saler: "5d448fd93eef6b653eb49812"
+    saler: "5d448fd93eef6b653eb49812",
   },
   {
     _id: "5d448fdc3eef6b653eb49814",
     website_name: "alonhadat.com.vn",
+    location: {
+      name: "Benh vien Q 12",
+      lat: 10.778292,
+      lng: 106.680386,
+    },
     title:
       "#Cần Tiền sang nhanh căn nhà đường Tô Ngọc Vân,nhà mới đúc 1trệt 2lầu thiết kế sang tron",
     referer: "https://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html",
@@ -282,11 +312,11 @@ const DATA = [
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_11_1563125193.png",
       "https://cdn.luxstay.com/rooms/20465/large/room_20465_18_1563125204.png",
       "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?",
-      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg"
+      "https://a0.muscache.com/im/pictures/74a8c300-941d-4c15-887d-8ed1bd8c9b80.jpg",
     ],
     house_type: "facade",
-    saler: "5d448fd93eef6b653eb49812"
-  }
+    saler: "5d448fd93eef6b653eb49812",
+  },
 ];
 
 const newsApi = env => {
@@ -311,7 +341,7 @@ const newsApi = env => {
   return {
     getNews,
     getNewsDetail,
-    searchNews
+    searchNews,
   };
 };
 

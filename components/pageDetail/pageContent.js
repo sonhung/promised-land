@@ -1,13 +1,21 @@
-import React from "react";
-import css from "styled-jsx/css";
-import { Row, Col, Breadcrumb, Icon, Button } from "antd";
-import { Link } from "react-scroll";
+import React, { useState } from 'react'
+import css from 'styled-jsx/css'
+import { Row, Col, Breadcrumb, Icon, Button } from 'antd'
+import { Link } from 'react-scroll'
+import { debounce } from 'lodash'
+import { isMobile } from 'react-device-detect'
 
-import { HOUSE_TYPE } from "../../constants";
-import { formatPrice } from "../../utils";
-import wcIcon from "../../assets/images/wc.svg";
-import bedRoom from "../../assets/images/bedroom.svg";
-import PageMap from "./pageMap";
+import { formatPrice } from '../../utils'
+import wcIcon from '../../assets/images/wc.svg'
+import bedRoom from '../../assets/images/bedroom.svg'
+import PageMap from './pageMap'
+
+export const HOUSE_TYPE = {
+  'house': "Nhà đất",
+  'can-ho': "Căn hộ chung cư",
+  'phong-tro': "Phòng trọ",
+  'biet-thu': "Biệt thự",
+};
 
 const PageDetail = props => {
   const {
@@ -26,8 +34,19 @@ const PageDetail = props => {
     width,
     height,
     nearPlaces = [],
-    location = {}
-  } = props;
+    location = {},
+  } = props
+
+  const [fixedCard, setFixedCard] = useState(false)
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', debounce(() => {
+      let isFixed = window.pageYOffset > 500
+      // set for tablet
+      if (isMobile && window.pageYOffset > 340) isFixed = true
+      setFixedCard(isFixed)
+    }, 5))
+  }
 
   return (
     <div className="content">
@@ -141,7 +160,7 @@ const PageDetail = props => {
           </div>
         </Col>
         <Col lg={8} md={10}>
-          <div className="info">
+          <div className={`info ${fixedCard ? 'fixed-info' : ''}`}>
             <div className="price">{formatPrice(price)}đ</div>
             <div className="area">
               <Icon
@@ -236,6 +255,12 @@ const styles = css`
     border-radius: 3px;
   }
 
+  .fixed-info {
+    position: fixed;
+    top: 20px;
+    margin-right: 140px;
+  }
+
   .info :global(div) {
     margin: 13px 0;
   }
@@ -308,6 +333,18 @@ const styles = css`
     color: #ff4d4f;
     position: relative;
     top: 5px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .fixed-info {
+      margin-right: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .fixed-info {
+      margin-right: 25px;
+    }
   }
 
   @media only screen and (max-width: 767px) {

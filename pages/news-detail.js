@@ -45,7 +45,7 @@ NewsDetail.getInitialProps = async ({ res, req }) => {
 };
 
 NewsDetail.propTypes = {
-  data: object
+  data: object,
 };
 
 export default NewsDetail;
@@ -56,7 +56,7 @@ const styles = css`
   }
 
   .content {
-    margin: 57px 10%;
+    margin: 57px 90px;
   }
 
   @media only screen and (max-width: 1024px) {

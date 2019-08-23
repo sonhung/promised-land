@@ -4,6 +4,7 @@ import css from 'styled-jsx/css'
 import { Button, Modal, Menu, Dropdown, Icon, Avatar, Badge } from 'antd'
 import { isMobileOnly } from 'react-device-detect'
 import GoogleMapReact from 'google-map-react'
+import Router from 'next/router'
 
 import LoginForm from './loginForm'
 import AuthContext from './authContext'
@@ -58,10 +59,14 @@ const Header = () => {
   // search box
   const onPlacesChanged = () => {
     const [
-      { formatted_address = "", name = "", geometry: { location } = {} } = {},
+      { name = "", geometry: { location } = {} } = {},
     ] = searchBox.getPlaces() || [];
 
-    console.log({ formatted_address, name, location });
+    let urlAddress = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    urlAddress = urlAddress.replace(/,/g, '').replace(/ /g, '-')
+    const lat = location.lat()
+    const lng = location.lng()
+    Router.push(`/search-page/${urlAddress}?lat=${lat}&lng=${lng}`)
   };
 
   useEffect(() => {

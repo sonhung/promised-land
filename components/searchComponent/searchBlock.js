@@ -108,9 +108,8 @@ const Search = props => {
     if (houseType !== defaultType || province !== defaultProvince) {
       const type = get(houseType, 'value', 'bat-dong-san')
       const location = get(province, 'type', 'toan-quoc')
-      console.log(district)
       const pathname = Router.pathname || Router.route
-      Router.push(`${pathname}/${type}/${location}`)
+      Router.push(`/category/${type}/${location}`)
     }
   }, [houseType, province])
 
